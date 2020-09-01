@@ -1,23 +1,18 @@
 import React from 'react';
-import logo from '../../logo.svg';
+import NavBar from '../../components/Navbar/index';
+
+import './styles.css';
 
 function LandingPage() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-          </a>
-            </header>
+        <div>
+            <NavBar />
+            <div className="form">
+                <label for="input1" >From</label>
+                <input className="form-input" type="search" id="input1" />
+                <label for="input2">To</label>
+                <input className="form-input" type="search" id="input2" />
+            </div>
         </div>
     )
 }
