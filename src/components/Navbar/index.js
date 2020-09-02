@@ -5,8 +5,8 @@ const NavBar = () => {
     return (
         <div className="App">
             <div style={{ height: '300px', position: 'relative' }}>
-                <Layout style={{ background: 'url(http://www.getmdl.io/assets/demos/transparent.jpg) center / cover' }}>
-                    <Header transparent title="Title" style={{ color: 'white' }}>
+                <Layout fixedHeader>
+                    <Header style={{ backgroundColor: "transparent" }} title={<span><span style={{ color: '#ddd' }}>Area / </span><strong>The Title</strong></span>}>
                         <Navigation>
                             <a href="/">Link</a>
                         </Navigation>
