@@ -1,24 +1,21 @@
 import React from 'react';
-import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
+import 'materialize-css/dist/css/materialize.min.css'
+
+import './styles.css';
 
 const NavBar = () => {
     return (
-        <div className="App">
-            <div style={{ height: '300px', position: 'relative' }}>
-                <Layout fixedHeader>
-                    <Header style={{ backgroundColor: "transparent" }} title={<span><span style={{ color: '#ddd' }}>Area / </span><strong>The Title</strong></span>}>
-                        <Navigation>
-                            <a href="/">Link</a>
-                        </Navigation>
-                    </Header>
-                    <Drawer title="Title">
-                        <Navigation>
-                            <a href="/">Link</a>
-                        </Navigation>
-                    </Drawer>
-                    <Content />
-                </Layout>
-            </div>
+        <div>
+            <nav className="nav">
+                <div className="nav-wrapper">
+                    <a href="/" className="brand-logo">Logo</a>
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                        <li><a href="sass.html">Sass</a></li>
+                        <li><a href="badges.html">Components</a></li>
+                        <li><a href="collapsible.html">JavaScript</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     )
 }

@@ -15,7 +15,7 @@ class LandingPage extends Component {
 
     componentDidMount() {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer ogBAGTXoLH2bfAu1k5EvYg2oCxnt");
+        myHeaders.append("Authorization", "Bearer Z4kv1zhDrkRwOTHONp4Bdq52u8CE");
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
         myHeaders.append("Cookie", "visid_incap_2137601=293/kLe1SMCrQn9j66hxD3joUl8AAAAAQUIPAAAAAADkfLboxFe8MtlaoOB4MF6T");
 
@@ -50,22 +50,27 @@ class LandingPage extends Component {
                 </video>
                 <section className="form-section">
                     <h1>Track your flight</h1>
-                    <form className="form" action="/" method="post">
-                        <label for="input1">
-                            <input className="form-input" type="search" id="input1" placeholder="From" />
+                    <form action="/" method="post">
+                        <label htmlFor="input1">
+                            <input className="form-input" type="text" id="input1" placeholder="From" />
                         </label>
-                        <label for="input2">
-                            <input className="form-input" type="search" id="input2" placeholder="To" />
+                        <label htmlFor="input2">
+                            <input className="form-input" type="text" id="input2" placeholder="To" />
                         </label>
-                        <label for="input3">
+                        <label htmlFor="input3">
+                            Departure
                             <input className="form-input" type="date" id="input3" placeholder="From" />
                         </label>
-                        <label for="input4">
-                            <input className="form-input" type="time" id="input4" placeholder="Time" />
+                        <label htmlFor="input4">
+                            Return
+                            <input className="form-input" type="date" id="input4" placeholder="Time" />
+                        </label>
+                        <label htmlFor="input4">
+                            <input className="form-input" type="number" id="input4" placeholder="Passengers" />
                         </label>
                     </form>
+                    <button className="btn-search" type="search">Search</button>
                 </section>
-                <button className="btn-search" type="search">Search</button>
             </div>
         )
     }
