@@ -6,8 +6,8 @@ function DataFetching() {
     const [company, setCompany] = useState([]);
     const [departure, setDeparture] = useState([]);
     const [arrival, setArrival] = useState([]);
-    const [currency, setCurrency] = useState("");
-    const [total, setTotal] = useState("");
+    const [currency, setCurrency] = useState([]);
+    const [total, setTotal] = useState([]);
 
 
     useEffect(() => {
@@ -18,14 +18,14 @@ function DataFetching() {
         const adultsMax = "2"
 
         var data = qs.stringify({
-            'Authorization': 'Bearer 271Ocb3mcgM6bjQZRiyspUGbmjjA'
+            'Authorization': 'Bearer rsbzSuAgySFnEA1VCvKOvdMdWx1c'
         });
 
         var config = {
             method: 'get',
             url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${adultsMax}`,
             headers: {
-                'Authorization': 'Bearer 271Ocb3mcgM6bjQZRiyspUGbmjjA',
+                'Authorization': 'Bearer rsbzSuAgySFnEA1VCvKOvdMdWx1c',
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             data: data
@@ -51,7 +51,7 @@ function DataFetching() {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [])
+    }, [currency, total])
 
 
     return (
