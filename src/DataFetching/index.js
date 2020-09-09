@@ -3,9 +3,11 @@ import axios from 'axios';
 var qs = require('qs');
 require('dotenv').config();
 
-console.log(process.env.API_TOKEN)
+const myToken = process.env.REACT_APP_API_TOKEN
+console.log(myToken);
 
-function DataFetching() {
+
+function DataFetching({ originLocationCode, destinationLocationCode }) {
 
     const [company, setCompany] = useState([]);
     const [departure, setDeparture] = useState([]);
@@ -14,22 +16,21 @@ function DataFetching() {
     const [total, setTotal] = useState([]);
 
     useEffect(() => {
-        const originLocationCode = "LON"
-        const destinationLocationCode = "GRU"
         const departureDate = "2020-09-10"
         const returnDate = "2020-09-12"
         const adultsMax = "2"
 
         var data = qs.stringify({
-            'Authorization': `Bearer l9pOz7GEN1WWzbnhcUWd7VW4wNOZ`
+            'Authorization': `Bearer ${myToken}`
         });
 
         var config = {
             method: 'get',
             url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${adultsMax}`,
             headers: {
-                'Authorization': `Bearer l9pOz7GEN1WWzbnhcUWd7VW4wNOZ`,
+                'Authorization': `Bearer ${myToken}`,
                 'Content-Type': 'application/x-www-form-urlencoded',
+                destinationLocationCode
             },
             data: data
         };
@@ -51,10 +52,13 @@ function DataFetching() {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [currency, total])
+    }, [currency, total, originLocationCode, destinationLocationCode])
 
     return (
         <div style={{ textAlign: "center" }}>
+
+
+
             <div style={{ display: "inline-block", marginTop: "100px", width: "500px", height: "200px", borderRadius: "8px", backgroundColor: "white" }}>
 
                 <p> Company: {company}</p>
