@@ -3,7 +3,7 @@ import DataFetching from '../../DataFetching';
 
 import './styles.css';
 
-function FlightSearchForm() {
+const FlightSearchForm = () => {
     const [departureCity, setDeparture] = useState('')
     const [arrivalCity, setArrivalCity] = useState('')
     const [departureDate, setDepartureDate] = useState('')
@@ -25,11 +25,11 @@ function FlightSearchForm() {
                 </label>
                 <label htmlFor="input3">
                     Departure
-                                <input className="form-input" type="date" name="input3" value={departureDate} onChange={event => setDepartureDate(event.target.value)} placeholder="From" />
+                    <input className="form-input" type="date" name="input3" value={departureDate} onChange={event => setDepartureDate(event.target.value)} placeholder="From" />
                 </label>
                 <label htmlFor="input4">
                     Return
-                                <input className="form-input" type="date" name="input4" value={returnDate} onChange={event => setReturneDate(event.target.value)} placeholder="Time" />
+                    <input className="form-input" type="date" name="input4" value={returnDate} onChange={event => setReturneDate(event.target.value)} placeholder="Time" />
                 </label>
                 <label htmlFor="input4">
                     <input className="form-input" type="number" name="input4" value={numberOfPassengers} onChange={event => setNumberOfPassengers(event.target.value)} placeholder="Passengers" />

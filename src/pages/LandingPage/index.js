@@ -5,7 +5,7 @@ import PlainVideo from '../../assets/In-The-Clouds.mp4'
 import './styles.css';
 import FlightSearchForm from '../../components/FlightSearchForm';
 
-function LandingPage() {
+const LandingPage = () => {
 
     return (
         <div>
@@ -13,7 +13,7 @@ function LandingPage() {
             <video id="background-video" autoPlay loop muted >
                 <source src={PlainVideo} type="video/mp4" />
             </video>
-            <h1>Track your flight</h1>
+            <h1>Flight Scan</h1>
 
             <div>
 

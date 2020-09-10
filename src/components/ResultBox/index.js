@@ -1,9 +1,11 @@
 import React from 'react';
 
+import './styles.css';
+
 const ResultBox = ({ company, departure, arrival, currency, total }) => {
     return (
         <div>
-            <div style={{ display: "inline-block", marginTop: "100px", width: "500px", height: "200px", borderRadius: "8px", backgroundColor: "white" }}>
+            <div className="card-results">
 
                 <p> Company: {company}</p>
                 <p>Departure: {departure}</p>

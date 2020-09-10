@@ -5,37 +5,34 @@
 form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 100px;
+    grid-gap: 30px;
+    background-color: lightgray;
+    box-shadow: 4px 4px 3px 2px rgba(0, 0, 0, 0.3);
+    padding: 20px 20px;
+    border-radius: 8px;
+    margin-top: 60px;
     margin-left: 25%;
     width: 800px;
 }
 
-form .form-input {
-    margin-top: 30px;
-    font-size: 16px;
+form label .form-input {
     font-weight: bold;
-    position: relative;
-    outline: none;
-    background-color: transparent;
-    box-shadow: 5px 10px 18px black;
-    border-radius: 8px;
-    width: 400px;
-    height: 50px;
+    
 }
 
 @media (max-width: 812px) {
-    .form {
+    form {
         display: grid;
         grid-template-columns: 1fr;
     }
 }
 
-.form-input::placeholder {
+form label .form-input::placeholder {
     color: black;
   }
 
 .btn-search {
-    margin-top: 20px;
+    margin-top: 40px;
     border-radius: 8px;
     box-shadow: 4px 4px 3px 2px rgba(0, 0, 0, 0.3);
     width: 300px;
