@@ -7,7 +7,13 @@ const myToken = process.env.REACT_APP_API_TOKEN
 console.log(myToken);
 
 
-function DataFetching({ originLocationCode, destinationLocationCode }) {
+function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
+
+    console.log(originLocationCode);
+    console.log(destinationLocationCode);
+    console.log(departureDate);
+    console.log(returnDate);
+    console.log(passengerQuantity);
 
     const [company, setCompany] = useState([]);
     const [departure, setDeparture] = useState([]);
@@ -16,9 +22,6 @@ function DataFetching({ originLocationCode, destinationLocationCode }) {
     const [total, setTotal] = useState([]);
 
     useEffect(() => {
-        const departureDate = "2020-09-10"
-        const returnDate = "2020-09-12"
-        const adultsMax = "2"
 
         var data = qs.stringify({
             'Authorization': `Bearer ${myToken}`
@@ -26,11 +29,10 @@ function DataFetching({ originLocationCode, destinationLocationCode }) {
 
         var config = {
             method: 'get',
-            url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${adultsMax}`,
+            url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${passengerQuantity}`,
             headers: {
                 'Authorization': `Bearer ${myToken}`,
                 'Content-Type': 'application/x-www-form-urlencoded',
-                destinationLocationCode
             },
             data: data
         };
@@ -52,12 +54,10 @@ function DataFetching({ originLocationCode, destinationLocationCode }) {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [currency, total, originLocationCode, destinationLocationCode])
+    }, [originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity])
 
     return (
         <div style={{ textAlign: "center" }}>
-
-
 
             <div style={{ display: "inline-block", marginTop: "100px", width: "500px", height: "200px", borderRadius: "8px", backgroundColor: "white" }}>
 
