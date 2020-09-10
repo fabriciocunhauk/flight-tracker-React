@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import ResultBox from '../components/ResultBox';
 var qs = require('qs');
 require('dotenv').config();
 
@@ -8,12 +9,6 @@ console.log(myToken);
 
 
 function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
-
-    console.log(originLocationCode);
-    console.log(destinationLocationCode);
-    console.log(departureDate);
-    console.log(returnDate);
-    console.log(passengerQuantity);
 
     const [company, setCompany] = useState([]);
     const [departure, setDeparture] = useState([]);
@@ -59,13 +54,13 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     return (
         <div style={{ textAlign: "center" }}>
 
-            <div style={{ display: "inline-block", marginTop: "100px", width: "500px", height: "200px", borderRadius: "8px", backgroundColor: "white" }}>
-
-                <p> Company: {company}</p>
-                <p>Departure: {departure}</p>
-                <p>Arrival: {arrival}</p>
-                <p>Total: {currency} {total}</p>
-            </div>
+            <ResultBox
+                company={company}
+                departure={departure}
+                arrival={arrival}
+                currency={currency}
+                total={total}
+            />
         </div>
     )
 }

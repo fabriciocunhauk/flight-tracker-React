@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import DataFetching from '../../DataFetching';
 
 import './styles.css';
-import DataFetching from '../../DataFetching';
 
 function FlightSearchForm() {
     const [departureCity, setDeparture] = useState('')
@@ -15,7 +15,7 @@ function FlightSearchForm() {
     }
 
     return (
-        <div>
+        <div className="form-section">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="input1">
                     <input className="form-input" name="input1" type="text" value={departureCity} onChange={event => setDeparture(event.target.value)} placeholder="From" />
@@ -34,8 +34,8 @@ function FlightSearchForm() {
                 <label htmlFor="input4">
                     <input className="form-input" type="number" name="input4" value={numberOfPassengers} onChange={event => setNumberOfPassengers(event.target.value)} placeholder="Passengers" />
                 </label>
-                <button className="btn-search" type="submit">Search</button>
             </form>
+            <button className="btn-search" type="submit">Search</button>
             <DataFetching
                 originLocationCode={departureCity}
                 destinationLocationCode={arrivalCity}
