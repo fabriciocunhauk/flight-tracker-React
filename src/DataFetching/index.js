@@ -52,7 +52,7 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     }, [originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity])
 
     return (
-        <div style={{ textAlign: "center" }}>
+        <div>
 
             <ResultBox
                 company={company}
