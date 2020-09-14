@@ -10,11 +10,11 @@ console.log(myToken);
 
 function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
 
-    const [company, setCompany] = useState([]);
-    const [departure, setDeparture] = useState([]);
-    const [arrival, setArrival] = useState([]);
-    const [currency, setCurrency] = useState([]);
-    const [total, setTotal] = useState([]);
+    const [company, setCompany] = useState('');
+    const [departure, setDeparture] = useState('');
+    const [arrival, setArrival] = useState('');
+    const [currency, setCurrency] = useState('');
+    const [total, setTotal] = useState(null);
 
     useEffect(() => {
 
@@ -54,13 +54,13 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     return (
         <div>
 
-            <ResultBox
+            {total ? (<ResultBox
                 company={company}
                 departure={departure}
                 arrival={arrival}
                 currency={currency}
                 total={total}
-            />
+            />) : null}
         </div>
     )
 }
