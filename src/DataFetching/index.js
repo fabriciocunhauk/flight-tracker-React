@@ -5,10 +5,8 @@ import Loader from '../components/Loader/';
 var qs = require('qs');
 require('dotenv').config();
 
-const myToken = 'xbwlEP4aaMCwBIVjGeO3nnS7FP73'
-//process.env.REACT_APP_API_TOKEN
+const myToken = process.env.REACT_APP_API_TOKEN
 console.log(myToken);
-
 
 function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
 
@@ -20,7 +18,6 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     const [total, setTotal] = useState(null);
 
     useEffect(() => {
-        console.log('hiot');
         const fetchFunction = async () => {
             var data = qs.stringify({
                 'Authorization': `Bearer ${myToken}`

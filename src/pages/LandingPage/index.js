@@ -16,7 +16,6 @@ const LandingPage = () => {
             <h1>Flight Scan</h1>
 
             <div>
-
                 <FlightSearchForm />
             </div>
         </div>
