@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ResultBox from '../components/ResultBox';
+import Loader from '../components/Loader/';
 var qs = require('qs');
 require('dotenv').config();
 
-const myToken = 'n4mvk8rC0m8zz0G0KxUn88F7RzqS'
+const myToken = 'xbwlEP4aaMCwBIVjGeO3nnS7FP73'
 //process.env.REACT_APP_API_TOKEN
 console.log(myToken);
 
 
 function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
 
+    const [loading, setLoading] = useState(false)
     const [company, setCompany] = useState('');
     const [departure, setDeparture] = useState('');
     const [arrival, setArrival] = useState('');
@@ -18,7 +20,7 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     const [total, setTotal] = useState(null);
 
     useEffect(() => {
-
+        console.log('hiot');
         const fetchFunction = async () => {
             var data = qs.stringify({
                 'Authorization': `Bearer ${myToken}`
@@ -34,21 +36,27 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
                 data: data
             };
 
+
             if (passengerQuantity.length > 0) {
                 await axios(config)
                     .then(response => {
                         console.log(response);
+                        setLoading(true)
+
                         const companyName = response.data.dictionaries.carriers;
                         const departureDateAndTime = response.data.data[0].itineraries[0].segments[0].departure.at;
                         const arrivalDateAndTime = response.data.data[0].itineraries[0].segments[0].arrival.at;
                         const currencyType = response.data.data[0].price.currency;
                         const totalToPay = response.data.data[0].price.total;
 
-                        setCompany(JSON.stringify(companyName));
-                        setDeparture(JSON.stringify(arrivalDateAndTime));
-                        setArrival(JSON.stringify(departureDateAndTime));
-                        setCurrency(JSON.stringify(currencyType));
-                        setTotal(JSON.parse(totalToPay));
+                        setTimeout(() => {
+                            setCompany(JSON.stringify(companyName));
+                            setDeparture(JSON.stringify(arrivalDateAndTime));
+                            setArrival(JSON.stringify(departureDateAndTime));
+                            setCurrency(JSON.stringify(currencyType));
+                            setTotal(JSON.parse(totalToPay));
+                            setLoading(false);
+                        }, 3000)
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -57,6 +65,14 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
         }
         fetchFunction()
     }, [originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity])
+
+    if (loading) {
+        return (
+            <div style={{ marginTop: '20px' }}>
+                <Loader />
+            </div>
+        )
+    }
 
     return (
         <div>

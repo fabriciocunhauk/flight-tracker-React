@@ -14,6 +14,14 @@ const FlightSearchForm = () => {
         event.preventDefault()
     }
 
+    const resetInput = () => {
+        setDeparture('')
+        setArrivalCity('')
+        setDepartureDate('')
+        setReturneDate('')
+        setNumberOfPassengers('')
+    }
+
     return (
         <div className="form-section">
             <form onSubmit={handleSubmit}>
@@ -35,7 +43,7 @@ const FlightSearchForm = () => {
                     <input className="form-input" type="number" name="input4" value={numberOfPassengers} onChange={event => setNumberOfPassengers(event.target.value)} placeholder="Passengers" />
                 </label>
             </form>
-            <button className="btn-search" type="submit">Search</button>
+            <button className="btn-search" type="submit" onClick={resetInput}>Search</button>
             <DataFetching
                 originLocationCode={departureCity}
                 destinationLocationCode={arrivalCity}
