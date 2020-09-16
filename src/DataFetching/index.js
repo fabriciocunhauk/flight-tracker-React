@@ -65,7 +65,7 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
 
     if (loading) {
         return (
-            <div style={{ marginTop: '20px' }}>
+            <div style={{ marginTop: '-190px' }}>
                 <Loader />
             </div>
         )

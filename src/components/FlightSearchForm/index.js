@@ -42,8 +42,8 @@ const FlightSearchForm = () => {
                 <label htmlFor="input4">
                     <input className="form-input" type="number" name="input4" value={numberOfPassengers} onChange={event => setNumberOfPassengers(event.target.value)} placeholder="Passengers" />
                 </label>
+                <button className="btn-search" type="submit" onClick={resetInput}>Search</button>
             </form>
-            <button className="btn-search" type="submit" onClick={resetInput}>Search</button>
             <DataFetching
                 originLocationCode={departureCity}
                 destinationLocationCode={arrivalCity}
