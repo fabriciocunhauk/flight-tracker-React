@@ -3,9 +3,8 @@
 
 
 
-
 #### Introduction (what it's about & why you wrote it)
- 
+ The page was created for portfolio purposes.
 
 #### How to install
 
@@ -22,12 +21,10 @@ You will also see any lint errors in the console.
 #### How to use
 Search for flight prices by filling the form with your departure place, your destination, departure date, return date, and how many passengers.
 
-#### Technologies used (libraries & versions, helps recruiters)
-
+#### Technologies used
 Created with JavaScript, React.js.
 
-
-Acknowledgments
+#### Acknowledgments
 
 
 
