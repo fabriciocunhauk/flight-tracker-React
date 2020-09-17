@@ -2,7 +2,7 @@
 
 
 
-<img src="images/Capture.PNG" alt="drawing" width="700" height="400"/>
+<img src="images/Capture.PNG" alt="drawing" width="500" height="300"/>
 
 
 #### Introduction (what it's about & why you wrote it)
@@ -24,7 +24,9 @@ You will also see any lint errors in the console.
 Search for flight prices by filling the form with your departure place, your destination, departure date, return date, and how many passengers.
 
 #### Technologies used
-Created with JavaScript, React.js.
+Created with JavaScript, React.js Consuming from an API.
+
+API: https://developers.amadeus.com/self-service/category/air
 
 Made By Fabricio Cunha
 
