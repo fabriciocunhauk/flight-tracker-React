@@ -2,7 +2,7 @@
 
 
 
-<img src="images/Capture.PNG" alt="drawing" width="200" height="400"/>
+<img src="images/Capture.PNG" alt="drawing" width="700" height="400"/>
 
 
 #### Introduction (what it's about & why you wrote it)
