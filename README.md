@@ -1,6 +1,6 @@
 # Flight Search Page.
 
-![](images/Capture.PNG)
+![](images/Capture.PNG =100x20)
 
 
 #### Introduction (what it's about & why you wrote it)
