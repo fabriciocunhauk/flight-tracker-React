@@ -1,6 +1,6 @@
 # Flight Search Page.
 
-
+![](images/capiture.PNG)
 
 
 #### Introduction (what it's about & why you wrote it)
