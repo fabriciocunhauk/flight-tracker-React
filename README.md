@@ -1,6 +1,8 @@
 # Flight Search Page.
 
-![](images/Capture.PNG =100x20)
+
+
+<img src="images/Capture.PNG" alt="drawing" width="200" height="400"/>
 
 
 #### Introduction (what it's about & why you wrote it)
