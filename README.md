@@ -26,7 +26,7 @@ Search for flight prices by filling the form with your departure place, your des
 #### Technologies used
 Created with JavaScript, React.js.
 
-#### Acknowledgments
+Made By Fabricio Cunha
 
 
 
