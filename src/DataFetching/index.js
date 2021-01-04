@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ResultBox from '../components/ResultBox';
 import Loader from '../components/Loader/';
+import token from './myToken';
 var qs = require('qs');
-require('dotenv').config();
 
-const myToken = process.env.REACT_APP_API_TOKEN
-console.log(myToken);
+console.log(token);
 
 function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
 
@@ -20,14 +19,14 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     useEffect(() => {
         const fetchFunction = async () => {
             var data = qs.stringify({
-                'Authorization': `Bearer ${myToken}`
+                'Authorization': `Bearer ${token}`
             });
 
             var config = {
                 method: 'get',
                 url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${passengerQuantity}`,
                 headers: {
-                    'Authorization': `Bearer ${myToken}`,
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 data: data

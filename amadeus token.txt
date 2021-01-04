@@ -1,0 +1,11 @@
+{
+    "type": "amadeusOAuth2Token",
+    "username": "fabriciocunhadeveloper@gmail.com",
+    "application_name": "flight tracker",
+    "client_id": "n17el2mgFtWUhFTEDRGEGv1qRk9f4oAe",
+    "token_type": "Bearer",
+    "access_token": "peazmbbzJd8PTe7lsC43fdI00uTn",
+    "expires_in": 1799,
+    "state": "approved",
+    "scope": ""
+}
