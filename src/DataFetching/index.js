@@ -19,14 +19,14 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     useEffect(() => {
         const fetchFunction = async () => {
             var data = qs.stringify({
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer 4kyYk5NjUOd0vIBZIAPM6OctTnNA`
             });
 
             var config = {
                 method: 'get',
                 url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${passengerQuantity}`,
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    'Authorization': `Bearer 4kyYk5NjUOd0vIBZIAPM6OctTnNA`,
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 data: data
