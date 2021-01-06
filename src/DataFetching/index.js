@@ -5,7 +5,9 @@ import Loader from '../components/Loader/';
 import token from './myToken';
 var qs = require('qs');
 
-console.log(token);
+
+const tk = token
+console.log(tk);
 
 function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
 
@@ -19,14 +21,14 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     useEffect(() => {
         const fetchFunction = async () => {
             var data = qs.stringify({
-                'Authorization': `Bearer 4kyYk5NjUOd0vIBZIAPM6OctTnNA`
+                'Authorization': `Bearer ${tk}`
             });
 
             var config = {
                 method: 'get',
                 url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${passengerQuantity}`,
                 headers: {
-                    'Authorization': `Bearer 4kyYk5NjUOd0vIBZIAPM6OctTnNA`,
+                    'Authorization': `Bearer ${tk}`,
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 data: data
