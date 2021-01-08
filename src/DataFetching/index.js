@@ -14,49 +14,46 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     const [total, setTotal] = useState(null);
 
     useEffect(() => {
-        const fetchFunction = async () => {
-            var data = qs.stringify({
-                'Authorization': `Bearer aGDTaApScaDGBzRO450MLA7t1CIj`
-            });
+        var data = qs.stringify({
+            'Authorization': `Bearer 2L4ZpvlI7SStW2zBN5Lxv4wDAfXB`
+        });
 
-            var config = {
-                method: 'get',
-                url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${passengerQuantity}`,
-                headers: {
-                    'Authorization': `Bearer aGDTaApScaDGBzRO450MLA7t1CIj`,
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                data: data
-            };
+        var config = {
+            method: 'get',
+            url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=2&max=${passengerQuantity}`,
+            headers: {
+                'Authorization': `Bearer 2L4ZpvlI7SStW2zBN5Lxv4wDAfXB`,
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            data: data
+        };
 
 
-            if (passengerQuantity.length > 0) {
-                await axios(config)
-                    .then(response => {
-                        console.log(response);
-                        setLoading(true)
+        if (passengerQuantity.length > 0) {
+            axios(config)
+                .then(response => {
+                    setLoading(true)
+                    console.log(response.data);
 
-                        const companyName = response.data.dictionaries.carriers;
-                        const departureDateAndTime = response.data.data[0].itineraries[0].segments[0].departure.at;
-                        const arrivalDateAndTime = response.data.data[0].itineraries[0].segments[0].arrival.at;
-                        const currencyType = response.data.data[0].price.currency;
-                        const totalToPay = response.data.data[0].price.total;
+                    const companyName = response.data.dictionaries.carriers;
+                    const departureDateAndTime = response.data.data[0].itineraries[0].segments[0].departure.at;
+                    const arrivalDateAndTime = response.data.data[0].itineraries[0].segments[0].arrival.at;
+                    const currencyType = response.data.data[0].price.currency;
+                    const totalToPay = response.data.data[0].price.total;
 
-                        setTimeout(() => {
-                            setCompany(JSON.stringify(companyName));
-                            setDeparture(JSON.stringify(arrivalDateAndTime));
-                            setArrival(JSON.stringify(departureDateAndTime));
-                            setCurrency(JSON.stringify(currencyType));
-                            setTotal(JSON.parse(totalToPay));
-                            setLoading(false);
-                        }, 3000)
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-            }
+                    setTimeout(() => {
+                        setCompany(JSON.stringify(companyName));
+                        setDeparture(JSON.stringify(arrivalDateAndTime));
+                        setArrival(JSON.stringify(departureDateAndTime));
+                        setCurrency(JSON.stringify(currencyType));
+                        setTotal(JSON.parse(totalToPay));
+                        setLoading(false);
+                    }, 2000)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
-        fetchFunction()
     }, [originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity])
 
     if (loading) {

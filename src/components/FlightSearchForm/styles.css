@@ -40,3 +40,9 @@ form label .form-input::placeholder {
     width: 300px;
     height: 40px;
 }
+
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
