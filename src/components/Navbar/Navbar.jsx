@@ -1,7 +1,7 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 
-import './styles.css';
+import './navbar.styles.css';
 
 const NavBar = () => {
     return (

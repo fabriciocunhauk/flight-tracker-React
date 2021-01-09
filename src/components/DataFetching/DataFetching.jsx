@@ -1,0 +1,82 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import ResultBox from '../ResultBox/ResultBox';
+import Loader from '../Loader/Loader';
+var qs = require('qs');
+
+function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
+
+    const [loading, setLoading] = useState(false);
+    const [details, setDetails] = useState([]);
+    console.log('====================================');
+    console.log(details);
+    console.log('====================================');
+
+
+    useEffect(() => {
+        const getFlights = async () => {
+            var data = qs.stringify({
+                'Authorization': `Bearer VSSMScXr0VKAWAkKn9F6GAHxqPjL`
+            });
+
+            var config = {
+                method: 'get',
+                url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=${passengerQuantity}&max=10`,
+                headers: {
+                    'Authorization': `Bearer VSSMScXr0VKAWAkKn9F6GAHxqPjL`,
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                data: data
+            };
+
+
+            if (passengerQuantity > 0) {
+                await axios(config)
+                    .then(response => {
+                        setLoading(true)
+                        console.log(response.data.data);
+                        console.log(response.data);
+
+                        setTimeout(() => {
+                            setDetails(response.data.data);
+                            setLoading(false);
+                        }, 2000)
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
+        }
+        getFlights();
+    }, [originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity])
+
+    if (loading) {
+        return (
+            <div>
+                <Loader />
+            </div >
+        )
+    };
+
+
+    return (
+        <div>
+            {details ?
+
+                details.map(data => {
+                    console.log(data.id)
+
+                    return (<ResultBox
+                        key={data.id}
+                        company={"company"}
+                        departure={"departure"}
+                        arrival={"arrival"}
+                        currency={"price"}
+                        total={"total"}
+                    />)
+                }) : null}
+        </div>
+    )
+};
+
+export default DataFetching;

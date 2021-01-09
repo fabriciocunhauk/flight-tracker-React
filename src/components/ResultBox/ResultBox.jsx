@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles.css';
+import './result-box.styles.css';
 
 const ResultBox = ({ company, departure, arrival, currency, total }) => {
     return (
