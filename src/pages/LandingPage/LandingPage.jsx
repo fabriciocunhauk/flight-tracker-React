@@ -14,15 +14,15 @@ const LandingPage = () => {
     const [numberOfPassengers, setNumberOfPassengers] = useState('')
 
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
     }
 
     const resetInput = () => {
-        setDeparture('')
-        setArrivalCity('')
-        setDepartureDate('')
-        setReturneDate('')
-        setNumberOfPassengers('')
+        setDeparture('');
+        setArrivalCity('');
+        setDepartureDate('');
+        setReturneDate('');
+        setNumberOfPassengers('');
     }
 
     return (
