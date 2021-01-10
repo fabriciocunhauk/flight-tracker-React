@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ResultBox from '../ResultBox/ResultBox';
 import Loader from '../Loader/Loader';
+import './data-fetching.styles.css';
+
 var qs = require('qs');
+
 
 function DataFetching({ originLocationCode, destinationLocationCode, departureDate, returnDate, passengerQuantity }) {
 
@@ -16,14 +19,14 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
     useEffect(() => {
         const getFlights = async () => {
             var data = qs.stringify({
-                'Authorization': `Bearer VSSMScXr0VKAWAkKn9F6GAHxqPjL`
+                'Authorization': `Bearer PalgE4AIUMJZcafEFo0kZ5OP8NhH`
             });
 
             var config = {
                 method: 'get',
                 url: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=${passengerQuantity}&max=10`,
                 headers: {
-                    'Authorization': `Bearer VSSMScXr0VKAWAkKn9F6GAHxqPjL`,
+                    'Authorization': `Bearer PalgE4AIUMJZcafEFo0kZ5OP8NhH`,
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 data: data
@@ -52,7 +55,7 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
 
     if (loading) {
         return (
-            <div>
+            <div className="loader-container">
                 <Loader />
             </div >
         )
@@ -64,15 +67,15 @@ function DataFetching({ originLocationCode, destinationLocationCode, departureDa
             {details ?
 
                 details.map(data => {
-                    console.log(data.id)
+                    console.log(data.price.total)
 
                     return (<ResultBox
                         key={data.id}
                         company={"company"}
-                        departure={"departure"}
-                        arrival={"arrival"}
-                        currency={"price"}
-                        total={"total"}
+                        departure={data.itineraries[0].segments[0].departure.at}
+                        arrival={data.itineraries[0].segments[0].arrival.at}
+                        currency={data.price.currency}
+                        total={data.price.total}
                     />)
                 }) : null}
         </div>

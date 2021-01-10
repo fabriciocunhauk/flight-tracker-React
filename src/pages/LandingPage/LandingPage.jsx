@@ -26,12 +26,11 @@ const LandingPage = () => {
     }
 
     return (
-        <div>
+        <div className="landing-page-container">
             <NavBar />
             <video id="background-video" autoPlay loop muted >
                 <source src={PlainVideo} type="video/mp4" />
             </video>
-            <h1>Flight Scan</h1>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="input1">
@@ -53,13 +52,15 @@ const LandingPage = () => {
                     </label>
                     <button className="btn-search" type="submit" onClick={resetInput}>Search</button>
                 </form>
-                <DataFetching
-                    originLocationCode={departureCity}
-                    destinationLocationCode={arrivalCity}
-                    departureDate={departureDate}
-                    returnDate={returnDate}
-                    passengerQuantity={numberOfPassengers}
-                />
+                <div className="scroll">
+                    <DataFetching
+                        originLocationCode={departureCity}
+                        destinationLocationCode={arrivalCity}
+                        departureDate={departureDate}
+                        returnDate={returnDate}
+                        passengerQuantity={numberOfPassengers}
+                    />
+                </div>
             </div>
         </div>
     )
